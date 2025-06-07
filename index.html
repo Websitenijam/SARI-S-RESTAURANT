@@ -104,7 +104,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50 relative">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
                 <h1 class="playfair text-2xl md:text-3xl font-bold text-gray-800">
@@ -124,9 +124,19 @@
                 <a href="#reservations" class="reservation-btn px-3 py-1.5 rounded text-white text-sm">
                     <i class="fas fa-calendar-alt"></i>
                 </a>
-                <button class="text-gray-700">
+                <button class="text-gray-700" id="mobileMenuButton">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden absolute top-16 left-0 right-0 bg-white shadow-lg md:hidden">
+                <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900">About</a>
+                    <a href="#menu" class="nav-link text-gray-700 hover:text-gray-900">Menu</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -447,7 +457,7 @@
                 
                 <div class="bg-gray-50 p-6 rounded-lg inline-block">
                     <!-- Replace this with your actual QR code image -->
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://sarirestaurant.com/menu" 
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://websitenijam.github.io/SARI-S-RESTAURANT/" 
                          alt="QR Code for Sari's Restaurant Digital Menu" 
                          class="w-48 h-48 mx-auto">
                     <p class="text-gray-500 text-sm mt-4">Scan me with your phone's camera</p>
@@ -698,11 +708,13 @@
             });
         });
         
-        // Mobile menu toggle functionality would go here
-        // This is just a placeholder for the actual implementation
-        document.querySelector('.md\\:hidden').addEventListener('click', function() {
-            // Toggle mobile menu visibility
-            alert('Mobile menu would open here in a complete implementation');
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('block');
         });
     </script>
 </body>
